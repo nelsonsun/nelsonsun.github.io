@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+button{
+    position:relative;
+    left: 0px;
+    top: 610px;
+    width:200px;
+    font-size: 36px;
+    background: white;
+
+}
