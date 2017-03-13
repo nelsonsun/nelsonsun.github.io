@@ -35,7 +35,7 @@ function Food(){
             //定义背景颜色
             this._food[r].style.background = this.foodBgColor;
             //给食物添加圆角属性
-            this._food[r].style.border-radius = this.border_radius;
+            //this._food[r].style.border-radius = this.border_radius;
             //定义背景颜色
             //this._food.style.display = this.display;
             //定义宽高
