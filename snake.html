@@ -5,7 +5,14 @@
 		<title>欢迎使用贪吃蛇游戏!</title>
         <link rel="stylesheet" type="text/css" href="./css/my.css">
         <script type="text/javascript">
+			document.onkeydown = function(event){
+				console.dir(event);
+	    		if(event.keyCode==83){
+			        	start();
+			    }
+	    	}
             window.onload = function (event) {
+            	
                 //确定玩家的名称,用作前缀
                 /*do{
                     pre = prompt("请输入游戏昵称:");

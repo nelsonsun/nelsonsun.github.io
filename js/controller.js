@@ -14,8 +14,10 @@ function Game(){
         //实例化食物类
         spanFood = new Food();
         //显示食物
-        //setInterval('spanFood.show()',100);
-        setTimeout('spanFood.show()',10);
+        //setInterval('spanFood.show()',1000);
+        for( var m=0;m<NUM;m++){
+        	setTimeout('spanFood.show()',10)
+        };
         //实例化蛇类
         snake = new Snake();
         //显示蛇

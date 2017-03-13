@@ -63,14 +63,20 @@ function Snake(){
 
     //根据传入的keycode值改变方向
     this.changeDirect = function(keyCode){
-        if(keyCode ==37 && this.direct != "RIGHT"){
+        if((keyCode ==37 || keyCode ==72) && this.direct != "RIGHT"){
             this.direct = "LEFT";
-        }else if(keyCode ==38 && this.direct != "DOWN" ){
+        }else if((keyCode ==38 || keyCode ==75) && this.direct != "DOWN" ){
             this.direct = "UP";
-        }else if(keyCode ==39 && this.direct != "LEFT" ){
+        }else if((keyCode ==39 || keyCode ==76) && this.direct != "LEFT" ){
             this.direct ='RIGHT';
-        }else if(keyCode ==40 && this.direct != "UP"){
+        }else if((keyCode ==40 || keyCode ==74) && this.direct != "UP"){
             this.direct = "DOWN";
+        }else if(keyCode ==83){
+        	start();
+        }else if(keyCode ==80){
+        	pause();
+        }else if(keyCode == 73){
+        	stop();
         }
     }
     //移动方法
@@ -101,17 +107,23 @@ function Snake(){
                 this.body[0][1] += 1;
                 break;
         }
-
         //当蛇头的位置与食物的位置相同时,蛇吃到食物,自身增加一节,食物刷新
-        if(this.body[0][0] ==spanFood.left && this.body[0][1] ==spanFood.top ){
-            //吃到食物,长度加1
-            var x = this.body[1][0];
-            var y = this.body[1][1]
-            var node = [x,y,SKBDBGCOLOR,null];
-            this.body.push(node);
-            //涮新食物
-            spanFood.show();
+        for(var k=0;k<spanFood.left.length;k++){
+        	if(this.body[0][0] ==spanFood.left[k] && this.body[0][1] ==spanFood.top[k] ){
+	            //吃到食物,长度加1
+	            var x = this.body[1][0];
+	            var y = this.body[1][1]
+	            var node = [x,y,SKBDBGCOLOR,null];
+	            this.body.push(node);
+	            //修改需要刷新的食物的下标
+	            r = k;
+	            console.dir(r);
+	            //涮新食物
+	            spanFood.show();
+	        }
         }
+        
+        
 
         //如果蛇头撞到边界或自己,结束游戏
         if(this.body[0][0]<0 || this.body[0][1]<0 || this.body[0][0]>= divMap.width || this.body[0][1] >= divMap.height){
