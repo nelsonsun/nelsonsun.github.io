@@ -1,4 +1,4 @@
-# Retro_Snaker
+# [Retro_Snaker](/snake.html)
 一个通过js写的简易贪吃蛇
 
 添加了snake分支
